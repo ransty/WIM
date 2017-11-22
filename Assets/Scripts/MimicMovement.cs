@@ -23,8 +23,8 @@ public class MimicMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
           otherObject.transform.localPosition = this.transform.localPosition;
-          otherObject.transform.localRotation = this.transform.localRotation;
-          otherObject.transform.localEulerAngles = this.transform.localEulerAngles;
+          //otherObject.transform.localRotation = this.transform.localRotation;
+          //otherObject.transform.localEulerAngles = this.transform.localEulerAngles;
 	}
 
 }

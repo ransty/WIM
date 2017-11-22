@@ -76,18 +76,71 @@ namespace VRTK
                         {
                             currentMode = 4;
                             Debug.Log(currentMode);
+                            GameObject[] wimObjects = GameObject.FindGameObjectsWithTag("WIM");
+                            foreach (GameObject wim in wimObjects)
+                            {
+                                if (wim.GetComponent<MimicMovement>() != null)
+                                {
+                                    wim.GetComponent<MimicMovement>().enabled = true;
+                                    wim.GetComponent<Mode6>().enabled = false;
+                                    wim.GetComponent<Mode8>().enabled = false;
+                                }
+                            }
+
                         } else if (this.name.Equals("Mode 5"))
                         {
                             currentMode = 5;
                             Debug.Log(currentMode);
+                            GameObject[] wimObjects = GameObject.FindGameObjectsWithTag("WIM");
+                            foreach (GameObject wim in wimObjects)
+                            {
+                                if (wim.GetComponent<MimicMovement>() != null)
+                                {
+                                    wim.GetComponent<MimicMovement>().enabled = true;
+                                    wim.GetComponent<Mode6>().enabled = false;
+                                    wim.GetComponent<Mode8>().enabled = false;
+                                }
+                            }
                         } else if (this.name.Equals("Mode 6"))
                         {
                             currentMode = 6;
                             Debug.Log(currentMode);
+                            GameObject[] wimObjects = GameObject.FindGameObjectsWithTag("WIM");
+                            foreach (GameObject wim in wimObjects)
+                            {
+                                if (wim.GetComponent<Mode6>() != null)
+                                {
+                                    wim.GetComponent<Mode6>().enabled = true;
+                                    wim.GetComponent<Mode8>().enabled = false;
+                                    wim.GetComponent<MimicMovement>().enabled = false;
+                                }
+                            }
                         } else if (this.name.Equals("Mode 7"))
                         {
                             currentMode = 7;
                             Debug.Log(currentMode);
+
+                            // Enable scripts in the room and disable wim scripts
+                            GameObject[] roomObjects = GameObject.FindGameObjectsWithTag("Room");
+                            GameObject[] wimObjects = GameObject.FindGameObjectsWithTag("WIM");
+
+                            foreach (GameObject wim in wimObjects)
+                            {
+                                if (wim.GetComponent<MimicMovement>() != null)
+                                {
+                                    wim.GetComponent<MimicMovement>().enabled = false;
+                                    wim.GetComponent<Mode6>().enabled = false;
+                                    wim.GetComponent<Mode8>().enabled = false;
+                                }
+                            }
+
+                            foreach (GameObject room in roomObjects)
+                            {
+                                if (room.GetComponent<MimicMovement>() != null)
+                                {
+                                    room.GetComponent<MimicMovement>().enabled = true;
+                                }
+                            }
                         } else if (this.name.Equals("Mode 8"))
                         {
                             currentMode = 8;
