@@ -7,11 +7,14 @@ namespace VRTK
 {
     public class ModeSwitch : MonoBehaviour
     {
+        public static int currentMode = 1;
 
         public Material lightOn;
         public Material lightOff;
 
         public GameObject controller;
+
+        private GameObject player;
 
         public GameObject[] modeList;
 
@@ -24,6 +27,7 @@ namespace VRTK
         private void Awake()
         {
             this.modeList = GameObject.FindGameObjectsWithTag("Modes");
+            this.player = GameObject.Find("WIM Player");
         }
 
         // Use this for initialization
@@ -52,27 +56,41 @@ namespace VRTK
                         this.GetComponent<Renderer>().material = lightOn;
                         if (this.name.Equals("Mode 1"))
                         {
-                            Debug.Log("REEEEEEEEEEEE");
+                            // Mode 1 is default mode, will add later
+                            currentMode = 1;
+                            Debug.Log(currentMode);
                         } else if (this.name.Equals("Mode 2"))
                         {
-
+                            // Wait for user to place replica of them, then update camera (no animation)
+                            currentMode = 2;
+                            // Get the script
+                            PlayerMimic script = player.GetComponent<PlayerMimic>();
+                            // Set the new mode on the WIM object
+                            script.EnableMode2();
                         } else if (this.name.Equals("Mode 3"))
                         {
-
+                            // Wait for user to place replica of them, then update camera (with animation)
+                            currentMode = 3;
+                            Debug.Log(currentMode);
                         } else if (this.name.Equals("Mode 4"))
                         {
-
+                            currentMode = 4;
+                            Debug.Log(currentMode);
                         } else if (this.name.Equals("Mode 5"))
                         {
-
+                            currentMode = 5;
+                            Debug.Log(currentMode);
                         } else if (this.name.Equals("Mode 6"))
                         {
-
+                            currentMode = 6;
+                            Debug.Log(currentMode);
                         } else if (this.name.Equals("Mode 7"))
                         {
-
+                            currentMode = 7;
+                            Debug.Log(currentMode);
                         } else if (this.name.Equals("Mode 8"))
                         {
+                            currentMode = 8;
 
                         }
 
